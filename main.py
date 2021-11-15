@@ -47,6 +47,11 @@ Builder.load_string("""
         
         GridLayout:
             cols: 1
+            padding:10
+            spacing:10
+            size_hint: 1, None
+            width:200
+            height: self.minimum_height
             
             Label:
                 font_size: 75
@@ -88,7 +93,17 @@ Builder.load_string("""
                     app.root.current = "Quantity_Calc"
                     root.manager.transition.direction = "left" 
             
-    
+            Button:
+                font_size: 75
+                background_color: 0, 1, 1, 1
+                size_hint_y: None
+                height: 200
+                text: "Crypto Tips"
+                padding: 10, 10
+                on_release:
+                    app.root.current = "Crypto_Tips"
+                    root.manager.transition.direction = "left"
+                    
             Button:
                 font_size: 75
                 background_color: 0, 0 , 0 , 1
@@ -311,7 +326,7 @@ Builder.load_string("""
                 height: self.minimum_height   
 
 """)
-
+#Quantity
 Builder.load_string("""
 <Quantity_Calc>
     id:Quantity_Calc
@@ -410,6 +425,79 @@ Builder.load_string("""
                 size_hint: 1, None
                 height: self.minimum_height   
 
+""")
+#Tips
+Builder.load_string("""
+<Crypto_Tips>:
+    id: Crypto_Tips
+    name: "Crypto_Tips"
+    
+    ScrollView:
+        name: "Scroll"
+        do_scroll_x: False
+        do_scroll_y: True
+        
+        GridLayout:
+            cols: 1
+            padding:10
+            spacing:10
+            size_hint: 1, None
+            width:200
+            height: self.minimum_height
+            
+            Button:
+                font_size: 75
+                background_color: 0, 1, 1, 1
+                size_hint_y: None
+                height: 200
+                text: "Menu"
+                padding: 10, 10
+                on_release:
+                    app.root.current = "Menu"
+                    root.manager.transition.direction = "right"
+                    
+            Label:
+                font_size: 75
+                size_hint_y: None
+                height: 200
+                padding: 10, 10
+                text: "Crypto Tips"
+                
+            Label:
+                font_size: 75
+                size_hint_y: None
+                height: 200
+                padding: 10, 10
+                text: "1) Do your research before buying"
+                
+            Label:
+                font_size: 75
+                size_hint_y: None
+                height: 200
+                padding: 10, 10
+                text: "2) Only invest in what you can afford to lose"
+                
+            Label:
+                font_size: 75
+                size_hint_y: None
+                height: 200
+                padding: 10, 10
+                text: "3) Understand the difference between Hot/Cold wallets"
+                
+            Label:
+                font_size: 75
+                size_hint_y: None
+                height: 200
+                padding: 10, 10
+                text: "4) Transfers require gas/network fees"
+                
+            Label:
+                font_size: 75
+                size_hint_y: None
+                height: 200
+                padding: 10, 10
+                text: "5) Do not share your wallet's private keys socially"
+                    
 """)
 
 class Crypto_Calc(Screen):
@@ -606,6 +694,27 @@ class Quantity_Calc(Screen):
             self.ids.list_of_steps.add_widget(Label(text= "Invalid Input" ,font_size = 50, size_hint_y= None, height=100))
             self.layouts.append(layout)
 
+class Crypto_Tips(Screen):
+    sm = ScreenManager()
+
+    def __init__(self, **kwargs):
+        super(Crypto_Tips, self).__init__(**kwargs)
+        Window.bind(on_keyboard=self._key_handler)
+
+    def _key_handler(self, instance, key, *args):
+        if key == 27:
+            self.set_previous_screen()
+            return True
+
+    def set_previous_screen(self):
+        if sm.current == "Homepage":
+            pass
+        elif sm.current == "Menu":
+            pass
+        elif sm.current == "Crypto_Tips":
+            sm.transition.direction = 'right'
+            sm.current = "Menu"
+
 class Homepage(Screen):
     pass            
 
@@ -619,6 +728,7 @@ sm.add_widget(Menu(name="Menu"))
 sm.add_widget(Crypto_Calc(name="Crypto_Calc"))
 sm.add_widget(Crypto_Price_Calc(name="Crypto_Price_Calc"))
 sm.add_widget(Quantity_Calc(name="Quantity_Calc"))
+sm.add_widget(Crypto_Tips(name="Crypto_Tips"))
 sm.current = "Homepage"   
 
 
