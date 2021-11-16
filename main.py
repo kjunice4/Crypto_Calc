@@ -87,7 +87,7 @@ Builder.load_string("""
                 background_color: 1, 0, 1, 1
                 size_hint_y: None
                 height: 200
-                text: "Crypto Quantity:Value Calculator"
+                text: "Crypto Value Calculator"
                 padding: 10, 10
                 on_release:
                     app.root.current = "Quantity_Calc"
@@ -464,35 +464,35 @@ Builder.load_string("""
                 text: "Crypto Tips"
                 
             Label:
-                font_size: 75
+                font_size: 60
                 size_hint_y: None
                 height: 200
                 padding: 10, 10
                 text: "1) Do your research before buying"
                 
             Label:
-                font_size: 75
+                font_size: 60
                 size_hint_y: None
                 height: 200
                 padding: 10, 10
                 text: "2) Only invest in what you can afford to lose"
                 
             Label:
-                font_size: 75
+                font_size: 60
                 size_hint_y: None
                 height: 200
                 padding: 10, 10
                 text: "3) Understand the difference between Hot/Cold wallets"
                 
             Label:
-                font_size: 75
+                font_size: 60
                 size_hint_y: None
                 height: 200
                 padding: 10, 10
                 text: "4) Transfers require gas/network fees"
                 
             Label:
-                font_size: 75
+                font_size: 60
                 size_hint_y: None
                 height: 200
                 padding: 10, 10
@@ -564,16 +564,17 @@ class Crypto_Calc(Screen):
             supply = float(capital) / float(crypto_price)
             print("supply",supply)
 
-            self.ids.list_of_steps.add_widget(Label(text= "Amount of coins you own: " + str("{:,}".format(supply)),font_size = 50, size_hint_y= None, height=100))
+            self.ids.list_of_steps.add_widget(Label(text= "Amount of coins you own: " ,font_size = 50, size_hint_y= None, height=100))
+            self.ids.list_of_steps.add_widget(Label(text= str("{:,}".format(supply)),font_size = 50, size_hint_y= None, height=100))
             self.layouts.append(layout)
             
             sell_price = str(float(capital_goal) / supply)
             print("sell_price",sell_price)
 
-            self.ids.list_of_steps.add_widget(Label(text= "Selling price to achieve Capital Gains Goal: " + "${:,.2f}".format(float(sell_price)),font_size = 50, size_hint_y= None, height=100))
+            self.ids.list_of_steps.add_widget(Label(text= "Selling price to achieve Capital Gains Goal: ",font_size = 50, size_hint_y= None, height=100))
+            self.ids.list_of_steps.add_widget(Label(text= "${:,.2f}".format(float(sell_price)),font_size = 50, size_hint_y= None, height=100))
             self.ids.list_of_steps.add_widget(Label(text= "To The Moon!" ,font_size = 50, size_hint_y= None, height=100))
             self.layouts.append(layout)
-            
             
         except Exception:
             self.ids.list_of_steps.add_widget(Label(text= "Invalid Input" ,font_size = 50, size_hint_y= None, height=100))
