@@ -350,7 +350,7 @@ Builder.load_string("""
                 size_hint_y: None
                 height: 200
                 padding: 10, 10
-                text: "Crypto Quantity:Value Calculator"
+                text: "Crypto Value Calculator"
                 
             BoxLayout:
                 cols: 2
