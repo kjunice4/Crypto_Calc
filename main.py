@@ -500,6 +500,7 @@ Builder.load_string("""
                     
 """)
 
+#Profit
 class Crypto_Calc(Screen):
     sm = ScreenManager()
 
@@ -570,9 +571,12 @@ class Crypto_Calc(Screen):
             
             sell_price = str(float(capital_goal) / supply)
             print("sell_price",sell_price)
+            
+            if float(sell_price) > 1:
+                "{:,.2f}".format(float(sell_price))
 
             self.ids.list_of_steps.add_widget(Label(text= "Selling price to achieve Capital Gains Goal: ",font_size = 50, size_hint_y= None, height=100))
-            self.ids.list_of_steps.add_widget(Label(text= "${:,.2f}".format(float(sell_price)),font_size = 50, size_hint_y= None, height=100))
+            self.ids.list_of_steps.add_widget(Label(text= "$" + str(sell_price),font_size = 50, size_hint_y= None, height=100))
             self.ids.list_of_steps.add_widget(Label(text= "To The Moon!" ,font_size = 50, size_hint_y= None, height=100))
             self.layouts.append(layout)
             
@@ -622,9 +626,11 @@ class Crypto_Price_Calc(Screen):
             price = float(mkt_cap) / float(supply)
             print("price",price)
             
-            self.ids.list_of_steps.add_widget(Label(text= "Market Capital: $" + "{:,.2f}".format(float(mkt_cap)) ,font_size = 50, size_hint_y= None, height=100))
+            self.ids.list_of_steps.add_widget(Label(text= "Market Capital:" ,font_size = 50, size_hint_y= None, height=100))
+            self.ids.list_of_steps.add_widget(Label(text= "$"+"{:,.2f}".format(float(mkt_cap)) ,font_size = 50, size_hint_y= None, height=100))
             self.ids.list_of_steps.add_widget(Label(text= "÷" ,font_size = 50, size_hint_y= None, height=100))
-            self.ids.list_of_steps.add_widget(Label(text= "Circulating Supply: " + "{:,.2f}".format(float(supply)) ,font_size = 50, size_hint_y= None, height=100))
+            self.ids.list_of_steps.add_widget(Label(text= "Circulating Supply: " ,font_size = 50, size_hint_y= None, height=100))
+            self.ids.list_of_steps.add_widget(Label(text= "#"+ "{:,.2f}".format(float(supply)) ,font_size = 50, size_hint_y= None, height=100))
             self.ids.list_of_steps.add_widget(Label(text= "=" ,font_size = 50, size_hint_y= None, height=100))
             self.ids.list_of_steps.add_widget(Label(text= "Crypto Price: $" + "{:,.2f}".format(price) ,font_size = 50, size_hint_y= None, height=100))
             self.layouts.append(layout)
