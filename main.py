@@ -33,7 +33,6 @@ Builder.load_string("""
                 root.manager.transition.direction = "left" 
 
 """)
-
 #Menu
 Builder.load_string("""
 <Menu>:
@@ -464,42 +463,41 @@ Builder.load_string("""
                 text: "Crypto Tips"
                 
             Label:
-                font_size: 60
+                font_size: 40
                 size_hint_y: None
                 height: 200
                 padding: 10, 10
                 text: "1) Do your research before buying"
                 
             Label:
-                font_size: 60
+                font_size: 40
                 size_hint_y: None
                 height: 200
                 padding: 10, 10
                 text: "2) Only invest in what you can afford to lose"
                 
             Label:
-                font_size: 60
+                font_size: 40
                 size_hint_y: None
                 height: 200
                 padding: 10, 10
                 text: "3) Understand the difference between Hot/Cold wallets"
                 
             Label:
-                font_size: 60
+                font_size: 40
                 size_hint_y: None
                 height: 200
                 padding: 10, 10
                 text: "4) Transfers require gas/network fees"
                 
             Label:
-                font_size: 60
+                font_size: 40
                 size_hint_y: None
                 height: 200
                 padding: 10, 10
                 text: "5) Do not share your wallet's private keys socially"
                     
 """)
-
 #Profit
 class Crypto_Calc(Screen):
     sm = ScreenManager()
