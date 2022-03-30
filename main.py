@@ -508,18 +508,17 @@ class Crypto_Calc(Screen):
         Window.bind(on_keyboard=self._key_handler)
 
     def _key_handler(self, instance, key, *args):
-        def _key_handler(self, instance, key, *args):
-            print("Key: ",key)
-            print("Current",sm.current)
-            if int(key) == 27:
-                if sm.current == "Homepage":
-                    pass
-                elif sm.current == "Menu":
-                    pass
-                elif sm.current == "Crypto_Calc":
-                    sm.transition.direction = 'right'
-                    sm.current = "Menu"
-                return True
+        print("Key: ",key)
+        print("Current",sm.current)
+        if int(key) == 27:
+            if sm.current == "Homepage":
+                pass
+            elif sm.current == "Menu":
+                pass
+            elif sm.current == "Crypto_Calc":
+                sm.transition.direction = 'right'
+                sm.current = "Menu"
+            return True
             
     layouts = []
     def calculate(self,entry):
@@ -591,18 +590,17 @@ class Crypto_Price_Calc(Screen):
         Window.bind(on_keyboard=self._key_handler)
 
     def _key_handler(self, instance, key, *args):
-        def _key_handler(self, instance, key, *args):
-            print("Key: ",key)
-            print("Current",sm.current)
-            if int(key) == 27:
-                if sm.current == "Homepage":
-                    pass
-                elif sm.current == "Menu":
-                    pass
-                elif sm.current == "Crypto_Price_Calc":
-                    sm.transition.direction = 'right'
-                    sm.current = "Menu"
-                return True
+        print("Key: ",key)
+        print("Current",sm.current)
+        if int(key) == 27:
+            if sm.current == "Homepage":
+                pass
+            elif sm.current == "Menu":
+                pass
+            elif sm.current == "Crypto_Price_Calc":
+                sm.transition.direction = 'right'
+                sm.current = "Menu"
+            return True
     
     layouts = []
     def calculate(self,entry):
@@ -646,18 +644,17 @@ class Quantity_Calc(Screen):
         Window.bind(on_keyboard=self._key_handler)
 
     def _key_handler(self, instance, key, *args):
-        def _key_handler(self, instance, key, *args):
-            print("Key: ",key)
-            print("Current",sm.current)
-            if int(key) == 27:
-                if sm.current == "Homepage":
-                    pass
-                elif sm.current == "Menu":
-                    pass
-                elif sm.current == "Quantity_Calc":
-                    sm.transition.direction = 'right'
-                    sm.current = "Menu"
-                return True
+        print("Key: ",key)
+        print("Current",sm.current)
+        if int(key) == 27:
+            if sm.current == "Homepage":
+                pass
+            elif sm.current == "Menu":
+                pass
+            elif sm.current == "Quantity_Calc":
+                sm.transition.direction = 'right'
+                sm.current = "Menu"
+            return True
 
             
     layouts = []
